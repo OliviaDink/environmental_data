@@ -9,3 +9,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 [Final Project: R Reference Guide](final_R_reference.html)
+
+[Final Project: Data Analysis](data_analysis.html)
+
