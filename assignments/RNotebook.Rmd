@@ -1,0 +1,39 @@
+---
+title: "R Markdown Documents - Part 1"
+subtitle: "Analysis of Environmental Data"
+author: "Olivia Dinkelacker"
+
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    smooth_scroll: false
+
+---
+
+
+# Introduction 
+
+Hello, my name is **Olivia Dinkelacker**.
+
+I study *Environmental Conservation*
+
+
+
+# Concepts List
+
+1. basic R
+2. Hypothesis-Testing
+3. Analyzing data
+
+
+
+# Course List
+
+* Fisheries Management and Conservation
+* Applied Ecology
+* Conservation Biology
+
+
+
