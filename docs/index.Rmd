@@ -1,5 +1,5 @@
 ---
-title: "Olivia's Project Homepage"
+title: "Olivia's Project Hompepage"
 output: html_document
 ---
 
@@ -7,4 +7,3 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Welcome to Olivia's class page!
