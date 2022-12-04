@@ -7,3 +7,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Data analysis {.tabset .tabset-pills}
