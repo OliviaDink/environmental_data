@@ -10,104 +10,118 @@ knitr::opts_chunk$set(echo = TRUE)
 # R Reference Guide {.tabset .tabset-pills}
 
 ## Creating vectors
+
+In the following you can see an example for how to build a vector of numbers and a vector of character strings.
 ```{r}
-#Create a vector of numbers:
 num_vec  = c(1, 4, 8, 9, 13)
-
-#Create a vector of characters:
 char_vec = c("a", "fish", "data is cool")
+```
 
-#Typing the name of the vector into the console prints the contents
+Here you see how you can view the vector you build:
+```{r}
 num_vec
-
-## The print() function accomplishes the same task:
 print(char_vec)
 ```
 
 ## Loading Data and Packages
+In the following you can find instructions on how to load a package after installing it. There are two options to load a package listed below. Install packages using: install.packages().
+Afterwards, you find instructions on how to load data into a data frame and assigning it to a vector.
 ```{r}
 library(here)
+require(palmerpenguins)
 
-#install package and load load package option 2 
-require(palmerpenguins) #load 2
-
-#load data into a data frame
 ginkgo <- read.csv(here("data", "ginkgo_data_2021.csv"))
 ```
 
 ## Data Structures 
+In the following you can see how to determine the length of a vector or data frame using the length() function. 
 ```{r}
-#create a vector 
 vec <- c(1,3,7,5,10,9,2,8,6)
-
-#determine the length of an object
 length(vec)
+```
 
-#create a matrix out of the vector data
+Here you find an example of how to build a matrix from a vector:
+```{r}
 matrix(data = vec, nrow = 3, ncol = 3)
+```
 
-#create a data frame from vector data
+And the following template will help you to build a data frame from two different vectors:
+```{r}
 Species <- c("SB", "GD", "BT", "AS", "AT")
 Treatment <- c(1, 2, 2, 1, 2)
 
 data.frame(Species, Treatment)
+```
 
-#determine the number of rows in a data frame
+To get insight into the data and determine how many rows and columns you will need for a matrix use the follwing code:
+```{r}
 nrow(ginkgo)
-
-#determine the number of columns/variables in a data frame
 ncol(ginkgo)
+```
 
-#determine the dimensions over a quicker way #rows will always show up first
+The following will help you to retrieve the numbers of rows and columns at once. Remember that the rows/number of observations are shown first, and the number of columns/variables second.
+```{r}
 dim(ginkgo)
 ```
 
 ## Subsetting
+
+In the following you find instructions on how to subset a column from a data frame using the dollar sign. 
 ```{r}
-#subsetting a data frame by column
 ginkgo$site_id
+```
 
-#subset first row of data frame
+Another option to subset rows and colums from a data frame is shown below. Remember that rows come first and columns second. If you want to retrieve all the columns for one row you cann leave a space after the comma. The same works if you want to retrieve all rows of one column when you leave a space in front of the comma. 
+```{r}
 ginkgo[1,]
-
-#select the element in row 2 and column 3
 ginkgo[2,3]
-
-#select the third column of a data frame
 ginkgo[,3]
+```
 
-#subset one species from data frame
+Here you see how you can subset one species from a data frame using the subset() function. Write the column and use the equal sign twice to retrieve every row for the Adelie species. If you put an exclamation mark and one equal sign you retrieve every species that is not Adelie. 
+```{r}
 subset(penguins, species == "Adelie")
 ```
 
 ## Numerical data Exploration 
+In this section you find instructions on how to get insight into a result summary for every column in a data set using the sumamry() function.
 ```{r}
-##get result summaries for every column
 summary(ginkgo)
+```
 
-#calculate the mean of a column
+Below you see how to only calculate the mean of a column using the mean() function.
+```{r}
 mean(ginkgo$max_width)
+```
 
-#calculate the standard deviation of a variable + exclude NAs
+The following code will allow you to only calculate the standard deviation of a variable. The na.rm = TRUE argument will exlude all the missing values (NAs). 
+```{r}
 sd(ginkgo$max_width, na.rm = TRUE)
 ```
 
 ## Graphical Data Exploration
+In this section you find instructions on how to create a scatterplot. Use the ~ sign to plot the y against the x variable. Remember that the y variable will be stated first, the x variable comes after the tilde sign. The pch argument will determine the shape of the data points, the col argument will color the different sites in the plot, and the cex argument determines the size of the data points. Use the main, xlab and ylab argument to give a title name the axes. Use xlim and ylim to determine the size of the x and y axis.
 ```{r}
-#using a scatterplot
 plot(ginkgo$max_width~ ginkgo$max_depth,pch = 18, col= ginkgo$site_id, cex = 1, main = "Scatterplot of ginkgo leafs", xlab = "Leaf depth", ylab = "Leaf width", xlim = NULL, ylim = NULL)
+```
 
-#using a histogram
+In the following you can see a code for a histogram. The breaks argument will detemrmine how many columns you have in the plot representing your data.
+```{r}
 hist(penguins$flipper_length_mm, main = "Penguin flippers", xlab = "Flipper length", breaks = 40)
+```
 
-#using a boxplot
-#simple boxplot
+Below you find instructions on how to build a boxplot of one variable.
+```{r}
 boxplot(ginkgo$petiole_length, xlab = "Petiole length", main= "Ginkgo leafs 2021") 
+```
 
-#notch depth conditioned on seeds present
+And the following you see how a boxplot is made for two variables modeled against each other. Again the tilde sign is used for that. 
+```{r}
 boxplot(ginkgo$notch_depth~ginkgo$seeds_present, main = "Ginkgo leafs 2021", xlab = "Seeds present",  ylab = "Notch depth")
+```
 
-#four histograms 
+Here you see how to arrange four histograms next to each other using the par function. You will need the mfrow function and a vector determining how many rows and columsn you want to have. 
+```{r}
 par(mfrow= c(2,2))
 hist(penguins$body_mass_g, main = "Histogram of penguin body mass", xlab = "Body mass")
 hist(penguins$bill_length_mm, main = "Histogram of penguin flipper length", xlab = "Flipper length")
@@ -115,31 +129,42 @@ hist(penguins$bill_depth_mm, main = "Histogram of penguin bill depth", xlab = "B
 hist(ginkgo$max_width, main = "Histogramm of leaf width", xlab = "Leaf width")
 ```
 
-## Distribution function 
+## Distribution function
 
+### PDF
+In the following you will see a probability density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This function will help answer questions like: What is the probability of observing a value of 2?
 ```{r}
-#probability density function for a continuous (normal) distribution with a mean of 2 and a sd of 2
-#question: What is the probability of observing a value of 2?
 dnorm(2,mean = 0, sd= 1)
+```
 
-#cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2
-#question: What is the probability of observing a value greater than 1
+### CDF
+Here is an example for a cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help answer questions like: What is the probability of observing a value greater than 1?/What is the probability of observing a value lower than 1?
+```{r}
 pnorm(1,mean = 2, sd= 2, lower.tail = FALSE)
+```
 
-#quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2
-#question: What length will 90% of all fishes will be shorter than
+### QDF
+In the following you can see an example of a quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help to answer questions like: What length will 90% of all fishes will be shorter than
+```{r}
 qnorm(0.9,mean = 2, sd= 2, lower.tail = TRUE)
+```
 
-#probability mass function for a discrete binomial (normal) distribution 
-#question: What is the probability of observing 3 birds in 4 plots when usually birds are encountered on half of the plots?
+### PMF
+Here you see an example of a probability mass function for a discrete binomial (normal) distribution. Arguments are slightly different here and consist of x/q = vector of quantiles, size = number of trials, p = probability of successes. This will answer questions like:
+What is the probability of observing 3 birds in 4 plots when usually birds are encountered on half of the plots?
+```{r}
 dbinom(x= 3,size= 4, p=0.5)
+```
 
-#cumulative mass function for a discrete binomial (normal) distribution 
-#question: What is the probability of observing 3 birds or less in 4 plots when usually birds are encountered on half of the plots?
+### CMF
+In the following you see a cumulative mass function for a discrete binomial (normal) distribution. This will answer questions like: What is the probability of observing 3 birds or less in 4 plots when usually birds are encountered on half of the plots?
+```{r}
 pbinom(q=3, size=4, p=0.5, lower.tail = TRUE)
+```
 
-##quantile mass function for a discrete binomial (normal) distribution with
-#question: What is the 10th quantile of a binomial distribution with 10 trials and a success probability of 0.4 on each trial?
+### QMF
+In the following you see an example for a discrete binomial (normal) distribution.This will help answer questions like: What is the 10th quantile of a binomial distribution with 10 trials and a success probability of 0.4 on each trial?
+```{r}
 qbinom(p=0.1, size = 10, prob = 0.4)
 ```
 
