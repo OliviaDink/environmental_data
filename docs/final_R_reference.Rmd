@@ -100,12 +100,12 @@ sd(ginkgo$max_width, na.rm = TRUE)
 ```
 
 ## Graphical Data Exploration
-In this section you find instructions on how to create a scatterplot. Use the ~ sign to plot the y against the x variable. Remember that the y variable will be stated first, the x variable comes after the tilde sign. The pch argument will determine the shape of the data points, the col argument will color the different sites in the plot, and the cex argument determines the size of the data points. Use the main, xlab and ylab argument to give a title name the axes. Use xlim and ylim to determine the size of the x and y axis.
+In this section you find instructions on how to create a scatterplot. Use the ~ sign to plot the y against the x variable. Remember that the predictor variables will be the on the x axis and the response variable will be on the y axis. The pch argument will determine the shape of the data points, the col argument will color the different sites in the plot, and the cex argument determines the size of the data points. Use the main, xlab and ylab argument to give a title name the axes. Use xlim and ylim to determine the size of the x and y axis.
 ```{r}
 plot(ginkgo$max_width~ ginkgo$max_depth,pch = 18, col= ginkgo$site_id, cex = 1, main = "Scatterplot of ginkgo leafs", xlab = "Leaf depth", ylab = "Leaf width", xlim = NULL, ylim = NULL)
 ```
 
-In the following you can see a code for a histogram. The breaks argument will detemrmine how many columns you have in the plot representing your data.
+In the following you can see a code for a histogram. The breaks argument will determmine how many columns you have in the plot representing your data.
 ```{r}
 hist(penguins$flipper_length_mm, main = "Penguin flippers", xlab = "Flipper length", breaks = 40)
 ```
