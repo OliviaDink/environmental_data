@@ -1,5 +1,5 @@
 ---
-title: "Data analysis"
+title: "Final Project 2"
 output: html_document
 ---
 
@@ -7,4 +7,81 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data analysis {.tabset .tabset-pills}
+# Data Analysis {.tabset .tabset-pills}
+
+## Data Exploration 
+
+**Question 1:**
+There is a curved relationship between the body mass and body length of delomys. The slope is steep to the beginning but becomes less steep with increasing body mass. One inference from this could be that at a certain point delomys stop growing and only gain more weight. 
+
+
+**Question 2:**
+Based on the histograms the body mass and body length data appears to be normally distributed. Both histograms almost show the shape of a bell indicating a normal distribution. it is important to explore data and investigate their distribution in order to tell which tests (parametric or non-parametric) are suitable.
+
+
+**Question 3:**
+The body mass and length data are NOT normally distributed. In this case the histograms are a bit misguiding, showing the data in a almost normally distributed way. But based on the shapiro-test we can be sure that the data are not normally distributed, since both results are significant (<0.05).
+
+
+**Question 4:** 
+Based on the boxplots, there seem to be differences in body mass between the two species and between sexes. Delomys dorsalis appears to be heavier than delomys sublineatus. Additionally, there is graphical evidence that in both species males have a higher body mass than females. 
+
+
+## Model Assumptions
+
+**Question 5:**
+Although most of the histograms let suggest that the residuals are normally distributed, the shapiro-test gives us certainty that the residuals are not normally distributed. The p-values for the residuals of all five model are significant (<0.05). 
+
+
+**Question 6:**
+No, the violations of the normality assumption are not equally severe for all the models. For model 2 the violations are the least severe, but the p-value is still very significant. 
+
+
+## Simple Linear Regression 
+
+**Question 7:**
+There is a positive relationship between body mass and length. The p-value is 0, meaning that there is a significant relationship between the two variables. 
+
+**Question 8:**
+The expected body length of an animal that weighs 100g is 163.6745. This can be calculated by taking the Intercept and adding the product of the slope (body mass) multiplied by the expected body mass (100g). This is how it looks like: 76.1246565 + (0.8754988*100). 
+
+**Question 9:**
+The expected body length of an animal that weighs 0g is 76.1246565. This value can be taken from the model coefficient table. The Intercept shows the expected mean value of the body length when all parameters/coefficients are set to 0. 
+
+
+## Body Mass: Coefficient Tables
+
+**Question 10:**
+The base level for sex is: sexfemale.
+
+**Question 11:**
+The base level for binomial is: Delomys dorsalis.
+
+**Question 12:**
+Males are heavier than females. We know that because the base case is 42.711465 for females and the slope is 2.784133. This means we would have to add 2.784133 to the base case to get the mean weight for males, resulting in a higher number. 
+
+**Question 13:**
+Delomys dorsalis is heavier than Delomys sublineatus. We know hat because the base case (Delomys dorsalis) is 46.752427 and the slope is -7.683058. This means we would have to subtract -7.683058 from the base case to get the mean weight of Delomys sublineatus, resulting in a lower number. 
+
+
+## ANOVA Tables
+
+**Question 14:**
+Both, sex and species are significant predictors for body mass.The p-values are higher than 0.05.
+
+**Question 15:**
+There is no significant interaction between sex and species (binomial).The p-value is 0.9504424.
+
+**Question 16:**
+The p-values of the two main effects sex and species do not change very much across the anova tables. 
+
+
+## Model Comparison 
+
+**Question 17:**
+Model 4 (12896.73) and model 5 (12898.72) have the lowest AIC value. 
+
+**Question 18:**
+I would choose model 4 since there is no significant interaction between sex and species, so we don't have to include it. If we would include it, it would only make the model more complex and harder to understand/communicate without bringing any added quality to the model. To have a good model fit and not overcomplicate it, I think model 4 would be the best to go with. 
+
+
