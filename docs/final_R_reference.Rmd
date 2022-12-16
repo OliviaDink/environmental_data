@@ -17,7 +17,7 @@ num_vec  = c(1, 4, 8, 9, 13)
 char_vec = c("a", "fish", "data is cool")
 ```
 
-Here you see how you can view the vector you build:
+Here you see how you can view the vector you have built. There are two options to do so:
 ```{r}
 num_vec
 print(char_vec)
@@ -25,11 +25,13 @@ print(char_vec)
 
 ## Loading Data and Packages
 In the following you can find instructions on how to load a package after installing it. There are two options to load a package listed below. Install packages using: install.packages().
-Afterwards, you find instructions on how to load data into a data frame and assigning it to a vector.
 ```{r}
 library(here)
 require(palmerpenguins)
+```
 
+Here you find instructions on how to load data into a data frame and assigning it to a vector.
+```{r}
 ginkgo <- read.csv(here("data", "ginkgo_data_2021.csv"))
 ```
 
@@ -40,7 +42,7 @@ vec <- c(1,3,7,5,10,9,2,8,6)
 length(vec)
 ```
 
-Here you find an example of how to build a matrix from a vector:
+Here you find an example of how to build a matrix from a vector. Use the nrow and ncol argument to determine the number of rows and columns of the matrix.
 ```{r}
 matrix(data = vec, nrow = 3, ncol = 3)
 ```
@@ -71,14 +73,14 @@ In the following you find instructions on how to subset a column from a data fra
 ginkgo$site_id
 ```
 
-Another option to subset rows and colums from a data frame is shown below. Remember that rows come first and columns second. If you want to retrieve all the columns for one row you cann leave a space after the comma. The same works if you want to retrieve all rows of one column when you leave a space in front of the comma. 
+Another option to subset rows and columns from a data frame is shown below. Remember that rows come first and columns second. If you want to retrieve all the columns for one row you can leave a space after the comma. The same works if you want to retrieve all rows of one column when you leave a space in front of the comma. 
 ```{r}
 ginkgo[1,]
 ginkgo[2,3]
 ginkgo[,3]
 ```
 
-Here you see how you can subset one species from a data frame using the subset() function. Write the column and use the equal sign twice to retrieve every row for the Adelie species. If you put an exclamation mark and one equal sign you retrieve every species that is not Adelie. 
+Here you see how you can subset one species from a data frame using the subset() function. Write the column and use the equal sign twice to retrieve all data only for the Adelie species. If you put an exclamation mark and one equal sign you retrieve every species that is not Adelie. 
 ```{r}
 subset(penguins, species == "Adelie")
 ```
@@ -100,12 +102,12 @@ sd(ginkgo$max_width, na.rm = TRUE)
 ```
 
 ## Graphical Data Exploration
-In this section you find instructions on how to create a scatterplot. Use the ~ sign to plot the y against the x variable. The pch argument will determine the shape of the data points, the col argument will color the different sites in the plot, and the cex argument determines the size of the data points. Use the main, xlab and ylab argument to give a title name the axes. Use xlim and ylim to determine the size of the x and y axis.
+In this section you find instructions on how to create a scatterplot. Use the ~ sign to plot the y against the x variable. The pch argument will determine the shape of the data points, the col argument will color the different sites in the plot, and the cex argument determines the size of the data points. Use the main, xlab and ylab argument to give a title and name the axes. Use xlim and ylim to determine the size of the x and y axis.
 ```{r}
 plot(ginkgo$max_width~ ginkgo$max_depth,pch = 18, col= ginkgo$site_id, cex = 1, main = "Scatterplot of ginkgo leafs", xlab = "Leaf depth", ylab = "Leaf width", xlim = NULL, ylim = NULL)
 ```
 
-In the following you can see a code for a histogram. The breaks argument will determmine how many columns you have in the plot representing your data.
+In the following you can see a code for a histogram. The breaks argument will determine how many columns you have in the plot representing your data.
 ```{r}
 hist(penguins$flipper_length_mm, main = "Penguin flippers", xlab = "Flipper length", breaks = 40)
 ```
@@ -115,12 +117,12 @@ Below you find instructions on how to build a boxplot of one variable.
 boxplot(ginkgo$petiole_length, xlab = "Petiole length", main= "Ginkgo leafs 2021") 
 ```
 
-And the following you see how a boxplot is made for two variables modeled against each other. Again the tilde sign is used for that. 
+And the following you see how a boxplot is made for two variables modeled against each other. Again the tilde (~) sign is used for that. 
 ```{r}
 boxplot(ginkgo$notch_depth~ginkgo$seeds_present, main = "Ginkgo leafs 2021", xlab = "Seeds present",  ylab = "Notch depth")
 ```
 
-Here you see how to arrange four histograms next to each other using the par function. You will need the mfrow function and a vector determining how many rows and columsn you want to have. 
+Here you see how to arrange four histograms next to each other using the par function. You will need the mfrow argument and a vector determining how many rows and columns you want to have. 
 ```{r}
 par(mfrow= c(2,2))
 hist(penguins$body_mass_g, main = "Histogram of penguin body mass", xlab = "Body mass")
@@ -138,13 +140,13 @@ dnorm(x=2,mean= 0, sd=1)
 ```
 
 ### CDF
-Here is an example for a cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help answer questions like: What is the probability of observing a value greater than 1?/What is the probability of observing a value lower than 1?
+Here is an example for a cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help answer questions like: What is the probability of observing a value greater than 1?/What is the probability of observing a value lower than 1? To determine greater or lower use lower.tail =TRUE/FALSE.
 ```{r}
 pnorm(q=1,mean=2, sd=2, lower.tail = FALSE)
 ```
 
 ### QDF
-In the following you can see an example of a quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help to answer questions like: What length will 90% of all fishes will be shorter than
+In the following you can see an example of a quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help to answer questions like: What length will 90% of all fishes will be shorter than?
 ```{r}
 qnorm(p=0.9,mean=2, sd=2, lower.tail = TRUE)
 ```

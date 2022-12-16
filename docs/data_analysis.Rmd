@@ -16,7 +16,7 @@ There is a curved relationship between the body mass and body length of delomys.
 
 
 **Question 2:**
-Based on the histograms the body mass and body length data appears to be normally distributed. Both histograms almost show the shape of a bell indicating a normal distribution. it is important to explore data and investigate their distribution in order to tell which tests (parametric or non-parametric) are suitable.
+Based on the histograms the body mass and body length data appears to be normally distributed. Both histograms almost show the shape of a bell indicating a normal distribution. It is important to explore data and investigate their distribution in order to tell which tests (parametric or non-parametric) are suitable.
 
 
 **Question 3:**
@@ -40,7 +40,7 @@ No, the violations of the normality assumption are not equally severe for all th
 ## Simple Linear Regression 
 
 **Question 7:**
-The adjusted R-squared-value tells us the magnitude of the mass/length relationship. The magnitude of the relationship 0.551.
+The adjusted R-squared-value tells us the magnitude of the mass/length relationship. The magnitude of the relationship is 0.551.
 
 **Question 8:**
 The expected body length of an animal that weighs 100g is 163.6745. This can be calculated by taking the Intercept and adding the product of the slope (body mass) multiplied by the expected body mass (100g). This is how it looks like: 76.1246565 + (0.8754988*100). 
@@ -67,7 +67,7 @@ Delomys dorsalis is heavier than Delomys sublineatus. We know hat because the ba
 ## ANOVA Tables
 
 **Question 14:**
-Both, sex and species are significant predictors for body mass.The p-values are higher than 0.05.
+Both, sex and species are significant predictors for body mass.The p-values are lower than 0.05.
 
 **Question 15:**
 There is no significant interaction between sex and species (binomial).The p-value is 0.9504424.
