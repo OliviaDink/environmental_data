@@ -40,7 +40,7 @@ No, the violations of the normality assumption are not equally severe for all th
 ## Simple Linear Regression 
 
 **Question 7:**
-There is a positive relationship between body mass and length. The p-value is 0, meaning that there is a significant relationship between the two variables. 
+The adjusted R-squared-value tells us the magnitude of the mass/length relationship. The magnitude of the relationship 0.551.
 
 **Question 8:**
 The expected body length of an animal that weighs 100g is 163.6745. This can be calculated by taking the Intercept and adding the product of the slope (body mass) multiplied by the expected body mass (100g). This is how it looks like: 76.1246565 + (0.8754988*100). 
@@ -82,6 +82,6 @@ The p-values of the two main effects sex and species do not change very much acr
 Model 4 (12896.73) and model 5 (12898.72) have the lowest AIC value. 
 
 **Question 18:**
-I would choose model 4 since there is no significant interaction between sex and species, so we don't have to include it. If we would include it, it would only make the model more complex and harder to understand/communicate without bringing any added quality to the model. To have a good model fit and not overcomplicate it, I think model 4 would be the best to go with. 
+I would choose model 4 since there is no significant interaction between sex and species, so we don't have to include it. If we would include it, it would only make the model more complex and harder to understand/communicate without bringing any added quality to the model. To have a good model fit and not over-complicate it, I think model 4 would be the best to go with. 
 
 

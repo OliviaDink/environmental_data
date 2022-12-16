@@ -67,11 +67,23 @@ knitr::kable(coef(summary(fit1)))
 76.1246565 + (0.8754988*0)
 76.1246565 + (0.8754988*100)
 
-knitr::kable(coef(summary(fit5)))
+knitr::kable(coef(summary(fit2)))
 
 #Print ANOVA table 
-
+?dnorm
 knitr::kable(anova(fit5))
+
+anova(fit2)
+summary(fit1)
+
+magnitude 
+0.551
+
+ 18 
+ has to be 
+has the lowest 18
+
+summar
 
 #find best model using the AIC #lowest AIC value indicates the best model fit 
 
@@ -80,13 +92,16 @@ AIC(fit3)
 AIC(fit4)
 AIC(fit5)
 
+d value 
 
 
 
 
 
+r squared closer to 1 closer to 
 
+r squared is magnitude 
 
-
+presentation upload 
 
 

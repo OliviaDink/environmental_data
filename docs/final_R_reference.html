@@ -435,19 +435,19 @@ hist(ginkgo$max_width, main = &quot;Histogramm of leaf width&quot;, xlab = &quot
 <div id="pdf" class="section level3">
 <h3>PDF</h3>
 <p>In the following you will see a probability density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This function will help answer questions like: What is the probability of observing a value of 2?</p>
-<pre class="r"><code>dnorm(2,mean = 0, sd= 1)</code></pre>
+<pre class="r"><code>dnorm(x=2,mean= 0, sd=1)</code></pre>
 <pre><code>## [1] 0.05399097</code></pre>
 </div>
 <div id="cdf" class="section level3">
 <h3>CDF</h3>
 <p>Here is an example for a cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help answer questions like: What is the probability of observing a value greater than 1?/What is the probability of observing a value lower than 1?</p>
-<pre class="r"><code>pnorm(1,mean = 2, sd= 2, lower.tail = FALSE)</code></pre>
+<pre class="r"><code>pnorm(q=1,mean=2, sd=2, lower.tail = FALSE)</code></pre>
 <pre><code>## [1] 0.6914625</code></pre>
 </div>
 <div id="qdf" class="section level3">
 <h3>QDF</h3>
 <p>In the following you can see an example of a quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help to answer questions like: What length will 90% of all fishes will be shorter than</p>
-<pre class="r"><code>qnorm(0.9,mean = 2, sd= 2, lower.tail = TRUE)</code></pre>
+<pre class="r"><code>qnorm(p=0.9,mean=2, sd=2, lower.tail = TRUE)</code></pre>
 <pre><code>## [1] 4.563103</code></pre>
 </div>
 <div id="pmf" class="section level3">

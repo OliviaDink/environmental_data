@@ -134,19 +134,19 @@ hist(ginkgo$max_width, main = "Histogramm of leaf width", xlab = "Leaf width")
 ### PDF
 In the following you will see a probability density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This function will help answer questions like: What is the probability of observing a value of 2?
 ```{r}
-dnorm(2,mean = 0, sd= 1)
+dnorm(x=2,mean= 0, sd=1)
 ```
 
 ### CDF
 Here is an example for a cumulative density function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help answer questions like: What is the probability of observing a value greater than 1?/What is the probability of observing a value lower than 1?
 ```{r}
-pnorm(1,mean = 2, sd= 2, lower.tail = FALSE)
+pnorm(q=1,mean=2, sd=2, lower.tail = FALSE)
 ```
 
 ### QDF
 In the following you can see an example of a quantile function for a continuous (normal) distribution with a mean of 2 and a sd of 2. This will help to answer questions like: What length will 90% of all fishes will be shorter than
 ```{r}
-qnorm(0.9,mean = 2, sd= 2, lower.tail = TRUE)
+qnorm(p=0.9,mean=2, sd=2, lower.tail = TRUE)
 ```
 
 ### PMF
